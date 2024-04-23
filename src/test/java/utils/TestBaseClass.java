@@ -2,12 +2,12 @@ package utils;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class TestBaseClass {
 
@@ -29,12 +29,14 @@ public class TestBaseClass {
 		if(driver == null) {
 
 			if(browser.equalsIgnoreCase("chrome")) {
-//				System.out.println("In chrome section");
+				System.out.println("In chrome section");
 				System.setProperty("webdriver.chrome.driver",
 						System.getProperty("user.dir")+"\\src\\test\\resource\\chromedriver.exe");
 				driver = new ChromeDriver();
-			} else if(browser == "firefox") {
-//				firefox browser invocation code
+			} else if(browser.equalsIgnoreCase("firefox")) {
+				System.out.println("____________Firefox___________");
+				System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"\\src\\test\\resource\\geckodriver.exe");
+				driver = new FirefoxDriver();
 			}
 			
 			
